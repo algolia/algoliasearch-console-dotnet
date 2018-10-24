@@ -22,6 +22,12 @@ You should have something like this depending on the version you have installed 
 2.1.402
 ```
 
+If you have the following message `dotnet command not found`. Please run the following command :
+
+```shell
+export PATH=/usr/local/share/dotnet:$PATH
+```
+
 ### Visual studio Code
 
 If you don't have it, you should download [Visual Studio Code](https://code.visualstudio.com/) which is in my opinion, the best .NET IDE for MacOS at the moment.
