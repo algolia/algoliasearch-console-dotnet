@@ -35,7 +35,7 @@ Once you have downloaded Visual Studio Code, I recommend you to install some use
 
 This project aims to show how to use the .NET Algolia API Client from C# code.
 
-Open your terminal in the `src` folder.
+Open your terminal in the `src/AlgoliaConsole` folder.
 
 First, build the project
 
@@ -46,5 +46,5 @@ dotnet build
 Then, run the project
 
 ```shell
-dotnet run --project AlgoliaConsole/AlgoliaConsole.csproj
+dotnet run
 ```
