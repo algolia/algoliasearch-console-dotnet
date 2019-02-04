@@ -71,7 +71,7 @@ namespace AlgoliaConsole
         {
             if (String.IsNullOrEmpty(Environment.GetEnvironmentVariable("ALGOLIA_APPLICATION_ID")))
             {
-                Console.WriteLine("Please set the following environment variable : ALGOLIA_ADMIN_API_KEY");
+                Console.WriteLine("Please set the following environment variable : ALGOLIA_APPLICATION_ID");
                 Environment.Exit(1);
             }
 
@@ -81,8 +81,8 @@ namespace AlgoliaConsole
                 Environment.Exit(1);
             }
 
-            _apiKey = Environment.GetEnvironmentVariable("ALGOLIA_ADMIN_API_KEY");
             _appKey = Environment.GetEnvironmentVariable("ALGOLIA_APPLICATION_ID");
+            _apiKey = Environment.GetEnvironmentVariable("ALGOLIA_ADMIN_API_KEY");
         }
 
     }
