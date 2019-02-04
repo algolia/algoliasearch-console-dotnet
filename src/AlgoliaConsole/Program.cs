@@ -22,10 +22,13 @@
 */
 
 using Algolia.Search;
+using Algolia.Search.Clients;
+using Algolia.Search.Models.Search;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AlgoliaConsole
@@ -40,27 +43,27 @@ namespace AlgoliaConsole
             InitKeys();
 
             // Init the client
-            AlgoliaClient client = new AlgoliaClient(_appKey, _apiKey);
+            SearchClient client = new SearchClient(_appKey, _apiKey);
 
             // Init index
-            Index index = client.InitIndex("AlgoliaDotnetConsole");
+            SearchIndex index = client.InitIndex("AlgoliaDotnetConsole");
 
             // Push data from Json
             using (StreamReader re = File.OpenText("AlgoliaConsole/Datas/Actors.json"))
             using (JsonTextReader reader = new JsonTextReader(re))
             {
                 JArray batch = JArray.Load(reader);
-                var ret = await index.AddObjectsAsync(batch);
-                await index.WaitTaskAsync(ret["taskID"].ToString());
+                var ret = await index.SaveObjectsAsync(batch);
+                ret.Wait();
             }
 
             // Get data 
-            var actor = await index.GetObjectAsync("551486310");
-            Console.WriteLine(actor);
+            var actor = await index.GetObjectAsync<Actor>("551486310");
+            Console.WriteLine(actor.ToString());
 
             // Search
-            var search = await index.SearchAsync(new Query("monica"));
-            Console.WriteLine(search);
+            var search = await index.SearchAsync<Actor>(new Query("monica"));
+            Console.WriteLine(search.Hits.ElementAt(0).ToString());
             Environment.Exit(0);
         }
 
