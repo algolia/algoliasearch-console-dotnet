@@ -1,3 +1,11 @@
+<h1 align="center">
+    DEPRECATED: Use of this repository is deprecated. Please use the official
+    playground repository instead -
+    <a href="https://github.com/algolia/api-clients-playground/tree/master/dotnet">
+        https://github.com/algolia/api-clients-playground/tree/master/dotnet
+    </a>
+</h1>
+
 # Algolia's .NET console
 
 ## .NET environment setup
@@ -6,7 +14,7 @@ You can skip this part if you already have the .NET framework installed.
 
 ### .NET Core SDK 2.x
 
-Download and install the .NET Core SDK from [.NET Downloads](https://www.microsoft.com/net/download/core). 
+Download and install the .NET Core SDK from [.NET Downloads](https://www.microsoft.com/net/download/core).
 
 If you have problems with the installation on MacOS, consult the [Known issues](https://github.com/dotnet/core/tree/master/release-notes/2.0) topic for the version you have installed.
 
